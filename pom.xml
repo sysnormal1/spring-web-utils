@@ -6,7 +6,7 @@
 	<!--<groupId>com.sysnormal.commons.spring</groupId>-->
 	<groupId>io.github.sysnormal1.commons.spring</groupId>
 	<artifactId>spring-web-utils</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
+	<version>0.0.2</version>
 	<name>spring-web-utils</name>
 	<description>Sysnormal spring-web-utils</description>
 	<url>https://github.com/sysnormal1/spring-web-utils</url>
@@ -90,7 +90,7 @@
 		<dependency>
 			<groupId>io.github.sysnormal1.commons.core</groupId>
 			<artifactId>default-data-swap-core</artifactId>
-			<version>0.0.3-SNAPSHOT</version>
+			<version>0.0.3</version>
 			<optional>true</optional>
 		</dependency>
 
