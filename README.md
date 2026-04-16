@@ -19,7 +19,7 @@ Add the dependency below to your `pom.xml`:
 <dependency>
     <groupId>io.github.sysnormal1.commons.spring</groupId>
     <artifactId>spring-web-utils</artifactId>
-    <version>0.0.3</version>
+    <version>0.0.4</version>
 </dependency>
 ```
 

@@ -33,21 +33,15 @@ public class ResponseUtils {
             result.httpStatusCode = statusCode.value();
             logger.debug("response status {}",result.httpStatusCode);
             result.success = statusCode.is2xxSuccessful();
-
             try {
                 JsonNode jsonResponse = objectMapper.readTree(response.rawResponse);
                 result.success = jsonResponse.get("success").asBoolean();
-                //result.httpStatusCode = (HttpStatus) jsonResponse.get("httpStatus");
                 result.data = jsonResponse.get("data");
                 result.message = jsonResponse.get("message").asText();
-                //result.exception = jsonResponse.get("exceeption");
             } catch (Exception e) {
                 result.data = response.rawResponse;
             }
-            logger.debug("response.success {}, response.httpStatusCode {}, response.message {}", result.success,  result.httpStatusCode, result.message);
-            logger.debug("response.data {}",result.data);
         } catch (Exception e) {
-            e.printStackTrace();
             result.setException(e);
         }
         logger.debug("END {}.{}",ResponseUtils.class.getSimpleName(), "handleResponse");
