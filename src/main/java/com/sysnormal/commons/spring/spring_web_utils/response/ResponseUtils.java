@@ -50,7 +50,9 @@ public class ResponseUtils {
 
     public static ResponseEntity<DefaultDataSwap> sendDefaultDataSwapResponse(DefaultDataSwap defaultDataSwap) {
         try {
-            return defaultDataSwap.success ? ResponseEntity.status(HttpStatus.OK).body(defaultDataSwap) : ResponseEntity.status(Objects.requireNonNullElse(defaultDataSwap.httpStatusCode, HttpStatus.INTERNAL_SERVER_ERROR.value())).body(defaultDataSwap);
+            return defaultDataSwap.success
+                    ? ResponseEntity.status(HttpStatus.OK).body(defaultDataSwap)
+                    : ResponseEntity.status(Objects.requireNonNullElse(defaultDataSwap.httpStatusCode, HttpStatus.INTERNAL_SERVER_ERROR.value())).body(new DefaultDataSwap(defaultDataSwap, true));
         } catch (Throwable e) {
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new DefaultDataSwap(false, e.getMessage()));
